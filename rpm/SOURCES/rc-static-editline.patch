@@ -1,0 +1,14 @@
+--- rc-1.7.4/configure.ac	2015-05-13 21:22:09.000000000 +0000
++++ rc-1.7.4/configure.ac	2018-02-10 02:59:01.317388239 +0000
+@@ -186,9 +186,9 @@
+ 		;;
+ 	editline)
+ 		EDIT=edit-editline.o
+-		RC_LIB_TGETENT
++		#RC_LIB_TGETENT
+ 		AC_CHECK_LIB(editline, el_ring_bell, [
+-			LIBS="$LIBS -leditline $rc_lib_tgetent"
++			LIBS="$LIBS -leditline"
+ 		], AC_MSG_ERROR(editline library not found), $rc_lib_tgetent)
+ 		;;
+ 	readline|gnu)
