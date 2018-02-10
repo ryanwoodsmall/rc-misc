@@ -32,6 +32,8 @@ BuildRequires:	automake
 BuildRequires:	musl-static
 Source1:	https://github.com/troglobit/editline/releases/download/%{editlinever}/editline-%{editlinever}.tar.xz
 Patch0:		rc-static-editline.patch
+Conflicts:	%{spname}
+Obsoletes:	%{spname}
 Provides:	%{name}
 Provides:	%{spname}
 
