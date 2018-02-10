@@ -46,7 +46,7 @@ This is a re-implementation for Unix, by Byron Rakitzis, of the Plan 9 shell.
 autoreconf -fiv .
 
 %build
-tar -Jxvf %{SOURCE1}
+tar -Jxf %{SOURCE1}
 cd %{editlinedir}
 ./configure \
   --prefix=${PWD}-built \
@@ -58,7 +58,6 @@ cd %{editlinedir}
 make %{?_smp_mflags}
 make install
 cd ..
-#%configure --with-edit=gnu
 %configure \
   --with-edit=editline \
   CC="musl-gcc" CFLAGS="-Wl,-static" LDFLAGS="-static --static -L%{editlinedir}-built/lib" CPPFLAGS="-I%{editlinedir}/include"
