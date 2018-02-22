@@ -12,7 +12,7 @@
 Summary:          Re-implementation for Unix of the Plan 9 shell
 Name:             %{spname}-static
 Version:          1.7.4
-Release:          1%{?dist}
+Release:          2%{?dist}
 License:          zlib
 Group:            System Environment/Shells
 URL:              http://tobold.org/article/rc
@@ -29,7 +29,7 @@ BuildRoot:        %{_tmppath}/%{spname}-%{version}-%{release}-root-%(%{__id_u} -
 # customizations for static build
 BuildRequires:	autoconf
 BuildRequires:	automake
-BuildRequires:	musl-static
+BuildRequires:	musl-static >= 1.1.19
 Source1:	https://github.com/troglobit/editline/releases/download/%{editlinever}/editline-%{editlinever}.tar.xz
 Patch0:		rc-static-editline.patch
 Conflicts:	%{spname}
@@ -100,6 +100,9 @@ rm -rf $RPM_BUILD_ROOT
 %{_mandir}/man1/%{spname}.1*
 
 %changelog
+* Thu Feb 22 2018 ryan woodsmall <rwoodsmall@gmail.com>
+- release no. bump for musl-libc 1.1.19
+
 * Fri Feb  9 2018 ryan woodsmall <rwoodsmall@gmail.com> 
 - static build with musl and including editline
 
