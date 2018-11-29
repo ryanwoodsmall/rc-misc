@@ -12,7 +12,7 @@
 Summary:          Re-implementation for Unix of the Plan 9 shell
 Name:             %{spname}-static
 Version:          1.7.4
-Release:          3%{?dist}
+Release:          4%{?dist}
 License:          zlib
 Group:            System Environment/Shells
 URL:              http://tobold.org/article/rc
@@ -31,7 +31,7 @@ BuildRequires:	autoconf
 BuildRequires:	automake
 BuildRequires:	musl-static >= 1.1.20
 Source1:	https://github.com/troglobit/editline/releases/download/%{editlinever}/editline-%{editlinever}.tar.xz
-Patch0:		rc-static-editline.patch
+Patch0:		https://raw.githubusercontent.com/ryanwoodsmall/rc-misc/master/rpm/SOURCES/rc-static-editline.patch
 Conflicts:	%{spname}
 Obsoletes:	%{spname}
 Provides:	%{name}
