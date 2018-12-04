@@ -1,6 +1,6 @@
 %define spname rc
 
-%define editlinever 1.15.3
+%define editlinever 1.16.0
 %define editlinedir editline-%{editlinever}
 
 %define debug_package %{nil}
@@ -44,11 +44,11 @@ This is a re-implementation for Unix, by Byron Rakitzis, of the Plan 9 shell.
 
 %prep
 %setup -q -n %{spname}-%{version}
+tar -Jxf %{SOURCE1}
 %patch0 -p1
 autoreconf -fiv .
 
 %build
-tar -Jxf %{SOURCE1}
 cd %{editlinedir}
 ./configure \
   --prefix=${PWD}-built \
