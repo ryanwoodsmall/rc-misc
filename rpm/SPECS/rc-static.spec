@@ -12,11 +12,11 @@
 Summary:          Re-implementation for Unix of the Plan 9 shell
 Name:             %{spname}-static
 Version:          1.7.4
-Release:          9%{?dist}
+Release:          10%{?dist}
 License:          zlib
 Group:            System Environment/Shells
 URL:              http://tobold.org/article/rc
-Source0:          http://static.tobold.org/%{spname}/%{spname}-%{version}.tar.gz
+Source0:          https://sources.voidlinux.org/%{spname}-%{version}/%{spname}-%{version}.tar.gz
 %if 0%{?fedora} >= 17 || 0%{?rhel} >= 7
 Conflicts:        filesystem < 3
 Provides:         /bin/%{spname}
@@ -100,6 +100,10 @@ rm -rf $RPM_BUILD_ROOT
 %{_mandir}/man1/%{spname}.1*
 
 %changelog
+* Tue Oct 20 2020 ryan woodsmall <rwoodsmall@gmail.com>
+- move download to https://sources.voidlinux.org/
+- release bump
+
 * Sat Oct 26 2019 ryan woodsmall <rwoodsmall@gmail.com>
 - release bump for musl 1.1.24
 
