@@ -12,7 +12,7 @@
 Summary:          Re-implementation for Unix of the Plan 9 shell
 Name:             %{spname}-static
 Version:          1.7.4
-Release:          11%{?dist}
+Release:          12%{?dist}
 License:          zlib
 Group:            System Environment/Shells
 URL:              http://tobold.org/article/rc
@@ -29,7 +29,7 @@ BuildRoot:        %{_tmppath}/%{spname}-%{version}-%{release}-root-%(%{__id_u} -
 # customizations for static build
 BuildRequires:	autoconf
 BuildRequires:	automake
-BuildRequires:	musl-static >= 1.2.1-0
+BuildRequires:	musl-static >= 1.2.1-1
 Source1:	https://github.com/troglobit/editline/releases/download/%{editlinever}/editline-%{editlinever}.tar.xz
 Patch0:		https://raw.githubusercontent.com/ryanwoodsmall/rc-misc/master/rpm/SOURCES/rc-static-editline.patch
 #Conflicts:	%{spname}
@@ -100,6 +100,9 @@ rm -rf $RPM_BUILD_ROOT
 %{_mandir}/man1/%{spname}.1*
 
 %changelog
+* Wed Dec 30 2020 ryan woodsmall <rwoodsmall@gmail.com>
+- release bump for musl CVE-2020-28928
+
 * Tue Oct 20 2020 ryan woodsmall <rwoodsmall@gmail.com>
 - move download to https://sources.voidlinux.org/
 - release bump
