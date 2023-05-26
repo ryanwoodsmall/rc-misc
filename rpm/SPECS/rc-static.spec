@@ -16,7 +16,7 @@ Release:          15%{?dist}
 License:          zlib
 Group:            System Environment/Shells
 URL:              http://tobold.org/article/rc
-Source0:          https://sources.voidlinux.org/%{spname}-%{version}/%{spname}-%{version}.tar.gz
+Source0:          https://github.com/ryanwoodsmall/crosware-source-mirror/raw/master/%{spname}%{version}/%{spname}-%{version}.tar.gz
 %if 0%{?fedora} >= 17 || 0%{?rhel} >= 7
 Conflicts:        filesystem < 3
 Provides:         /bin/%{spname}
@@ -105,6 +105,7 @@ rm -rf $RPM_BUILD_ROOT
 %changelog
 * Thu May 25 2023 ryanwoodsmall
 - musl 1.2.4
+- move to github mirror
 
 * Fri Apr 29 2022 ryan woodsmall <rwoodsmall@gmail.com>
 - release bump for musl 1.2.3
