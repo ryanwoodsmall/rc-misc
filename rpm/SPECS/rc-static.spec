@@ -16,7 +16,7 @@ Release:          15%{?dist}
 License:          zlib
 Group:            System Environment/Shells
 URL:              http://tobold.org/article/rc
-Source0:          https://github.com/ryanwoodsmall/crosware-source-mirror/raw/master/%{spname}%{version}/%{spname}-%{version}.tar.gz
+Source0:          https://github.com/ryanwoodsmall/crosware-source-mirror/raw/master/rc174/%{spname}-%{version}.tar.gz
 %if 0%{?fedora} >= 17 || 0%{?rhel} >= 7
 Conflicts:        filesystem < 3
 Provides:         /bin/%{spname}
