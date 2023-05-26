@@ -12,7 +12,7 @@
 Summary:          Re-implementation for Unix of the Plan 9 shell
 Name:             %{spname}-static
 Version:          1.7.4
-Release:          14%{?dist}
+Release:          15%{?dist}
 License:          zlib
 Group:            System Environment/Shells
 URL:              http://tobold.org/article/rc
@@ -29,7 +29,7 @@ BuildRoot:        %{_tmppath}/%{spname}-%{version}-%{release}-root-%(%{__id_u} -
 # customizations for static build
 BuildRequires:	autoconf
 BuildRequires:	automake
-BuildRequires:	musl-static >= 1.2.3-1
+BuildRequires:	musl-static >= 1.2.4-0
 Source1:	https://github.com/troglobit/editline/releases/download/%{editlinever}/editline-%{editlinever}.tar.xz
 Patch0:		https://raw.githubusercontent.com/ryanwoodsmall/rc-misc/master/rpm/SOURCES/rc-static-editline.patch
 #Conflicts:	%{spname}
@@ -49,6 +49,7 @@ tar -Jxf %{SOURCE1}
 autoreconf -fiv .
 
 %build
+. /etc/profile
 cd %{editlinedir}
 ./configure \
   --prefix=${PWD}-built \
@@ -66,10 +67,12 @@ cd ..
 make %{?_smp_mflags}
 
 %install
+. /etc/profile
 rm -rf $RPM_BUILD_ROOT
 make DESTDIR=$RPM_BUILD_ROOT INSTALL='install -p' install
 
 %check
+. /etc/profile
 make check
 
 %post
@@ -100,6 +103,9 @@ rm -rf $RPM_BUILD_ROOT
 %{_mandir}/man1/%{spname}.1*
 
 %changelog
+* Thu May 25 2023 ryanwoodsmall
+- musl 1.2.4
+
 * Fri Apr 29 2022 ryan woodsmall <rwoodsmall@gmail.com>
 - release bump for musl 1.2.3
 
